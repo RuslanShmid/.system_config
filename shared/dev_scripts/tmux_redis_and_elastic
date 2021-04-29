@@ -1,0 +1,30 @@
+#!/bin/bash
+
+SESSION=`basename ser`
+COMMAND=$1
+
+# create session
+tmux -2 new-session -d -s $SESSION
+
+# ----------------------- Redis / Elastic windows -----------------------------------
+
+# rename main window
+tmux rename-window -t $SESSION:1 redis/elastic
+
+# split and resize panes on main
+tmux split-window -h
+
+# run processes
+
+tmux select-window -t $SESSION:1
+
+# run redis-server
+tmux select-pane -t 1
+tmux send-keys 'redis-server' C-m
+
+# run evm
+tmux select-pane -t 2
+tmux send-keys 'evm start' C-m
+
+# ========================================================================
+

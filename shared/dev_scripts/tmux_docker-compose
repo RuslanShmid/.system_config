@@ -1,0 +1,20 @@
+#!/bin/bash
+
+SESSION=`basename docker-services`
+COMMAND=$1
+
+# create session
+tmux -2 new-session -d -s $SESSION
+
+# ----------------------- docker-compose windows -----------------------------------
+
+# rename main window
+tmux rename-window -t $SESSION:1 docker
+
+# run docker-compose
+tmux send-keys 'cd ~/./.system_config/shared/dev_scripts' C-m
+tmux send-keys 'docker-compose up' C-m
+
+# ========================================================================
+tmux a -t docker-services
+

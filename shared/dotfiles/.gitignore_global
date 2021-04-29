@@ -1,0 +1,34 @@
+# --- VIM ---
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+
+# Temporary
+.netrwhist
+*~
+
+# Auto-generated tag files
+tags
+
+# Project files
+.idea
+erd.pdf
+development_helpers
+node_modules/*
+.ruby-version
+.ruby-gemset
+package-lock.json
+dump.rdb
+notes*
+/brakeman.html
+.rspec
+init_session_*
+rails_best_practices_output.html
+
+# --- EOF VIM ---
+

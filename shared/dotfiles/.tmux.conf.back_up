@@ -1,0 +1,122 @@
+# improve colors
+set -g default-terminal 'tmux-256color'
+# set -g default-terminal "screen-256color-italic" # colors!
+
+### Prefix maps
+# remap prefix to Control + s
+set -g prefix C-s
+
+# bind 'C-a C-a' to type 'C-a'
+bind C-s send-prefix
+set -s escape-time 0
+unbind C-b
+
+# Change history limit
+set -g history-limit 65536
+# Forbide renaming window
+# set -g allow rename off
+
+# enter copy mode
+bind e copy-mode
+bind Enter copy-mode
+
+# act like vim
+setw -g mode-keys vi
+unbind p
+bind p paste-buffer
+# bind-key -t vi-copy v begin-selection
+# bind-key -t vi-copy y copy-selection
+
+bind-key -T copy-mode-vi 'v' send -X begin-selection
+bind-key -T copy-mode-vi 'y' send -X copy-selection
+bind-key -T copy-mode-vi 'V' send -X rectangle-toggle
+
+# buffer
+bind Space choose-buffer
+
+unbind n
+unbind l
+# unbind c-^backspace
+# unbind shift-^backspace
+
+bind l next-window
+bind h previous-window
+
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+bind-key -n C-h if-shell "$is_vim" "send-keys C-h"  "select-pane -L"
+bind-key -n C-j if-shell "$is_vim" "send-keys C-j"  "select-pane -D"
+bind-key -n C-k if-shell "$is_vim" "send-keys C-k"  "select-pane -U"
+bind-key -n C-l if-shell "$is_vim" "send-keys C-l"  "select-pane -R"
+bind-key -T copy-mode-vi C-h select-pane -L
+bind-key -T copy-mode-vi C-j select-pane -D
+bind-key -T copy-mode-vi C-k select-pane -U
+bind-key -T copy-mode-vi C-l select-pane -R
+
+#################################################
+#bind -n M-h select-pane -L
+#bind -n M-j select-pane -D
+#bind -n M-k select-pane -U
+#bind -n M-l select-pane -R
+#################################################
+
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+bind > swap-pane -D       # swap current pane with the next one
+bind < swap-pane -U       # swap current pane with the previous one
+
+
+bind-key J resize-pane -D 10
+bind-key K resize-pane -U 10
+bind-key H resize-pane -L 30
+bind-key L resize-pane -R 30
+
+# reload configuration
+bind r source-file ~/.tmux.conf \; display '~/.tmux.conf sourced'
+
+bind-key -r C-h select-window -t :-
+bind-key -r C-l select-window -t :+
+
+############################ PANES
+# split pane
+bind-key g split-window -h -c "#{pane_current_path}"      # vertical split (default prefix-%)
+bind-key v split-window -v -c "#{pane_current_path}"      # horizontal split   (default prefix-")
+
+# split full window
+bind-key G split-window -fh -c "#{pane_current_path}"     # vertical split
+bind-key V split-window -fv -c "#{pane_current_path}"     # horizontal split
+
+unbind '"'
+unbind %
+############################
+
+# start window numbers at 1 to match keyboard order with tmux window order
+set -g base-index 1
+set-window-option -g pane-base-index 1
+
+# renumber windows sequentially after closing any of them
+set -g renumber-windows on
+
+# improve status bar
+set -g status-bg '#666666'
+set -g status-fg '#aaaaaa'
+set-option -g status-right " #(date '+%a, %b %d - %I:%M') "
+
+# don't suspend-client
+unbind-key C-z
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+
+#configure plugins
+
+set -g @continuum-restore 'on'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+xset r rate 200 60 &
+dropbox &
+nm-applet &
+xinput --set-prop 'SynPS/2 Synaptics TouchPad' 'Device Enabled' 0 & # disable touchpad
+xinput --set-prop 'MOSART Semi. 2.4G Wireless Mouse Mouse' 'libinput Accel Speed' -0.6 & # set acceleration for HP mouse
+xinput --set-prop 'MOSART Semi. 2.4G Wireless Mouse' 'libinput Accel Speed' -0.6 &       # set acceleration for HP mouse
+xinput --set-prop 'TPPS/2 Elan TrackPoint' 'libinput Accel Speed' -0.4 & # set acceleration for t490
+xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' -0.6 & # set acceleration for x220
+# setxkbmap -option caps:caps &
+setxkbmap -option caps:escape &
+# xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 0 & # disable the keyboard
+# blueman-applet &
+xrandr --output DP-0 --mode 3440x1440 --rate 144

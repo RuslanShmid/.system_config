@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:12.5
+    #image: postgres:13.1
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./.docker/postgres:/var/lib/postgresql/data
+
+        # mysql:
+        #   image: mysql:5.6.39
+        #   environment:
+        #     MYSQL_USER: mysql
+        #     MYSQL_PASSWORD: mysql
+        #     MYSQL_ROOT_PASSWORD: root
+        #   ports:
+        #     - "3306:3306"
+        #   volumes:
+        #     - ./.docker/mysql:/var/lib/mysql
+        #
+        #  mongodb:
+        #    image: mongo:4.1.2
+        #    ports:
+        #      - "27017:27017"
+        #    volumes:
+        #      - ./.docker/mongodb:/data/db
+        #
+        #redis:
+        #  image: redis:3.2.9-alpine
+        #  ports:
+        #    - "6379:6379"
+        #  volumes:
+        #    - ./.docker/redis:/data
+        #
+        #  elasticsearch:
+        #    image: elasticsearch:2.3.0
+        #    ports:
+        #      - "9200:9200"
+        #    volumes:
+        #      - ./.docker/elasticsearch:/usr/share/elasticsearch/data
+        #    environment:
+        #      - bootstrap.memory_lock=true
+        #      - "ES_JAVA_OPTS=-Xms2g -Xmx2g"
+        #      - xpack.security.enabled=false
+        #    ulimits:
+        #     memlock:
+        #       soft: -1
+        #       hard: -1
+        #     nofile:
+        #       soft: 65536
+        #       hard: 65536
+

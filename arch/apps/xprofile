@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# for turn off tuch pad
+sudo pacman -S xorg-xinput --noconfirm
+
+rm ~/.xprofile
+ln -s ~/.system_config/arch/dotfiles/.xprofile ~/.xprofile
+

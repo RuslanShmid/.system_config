@@ -1,0 +1,117 @@
+### Legacy installation of Arch linux
+
+# https://github.com/RuslanShmid/.system_config.git
+
+# 0. Set cow.
+# https://www.ostechnix.com/adjust-size-root-partition-live-arch-linux
+
+# PRESS e
+# When you boot the Arch Linux livecd, press e or hit TAB key to edit the kernel parameters. Go to the end of the line that says “…. linux=… initrd=….” something like that and append cow_spacesize=5G at the end to get 5GB size root partition or whatever space left from RAM.
+
+# 1. run update_pacman_and_set_reflector script
+pacman -Suy --noconfirm && pacman -S git --noconfirm    # update pacman databases
+./installation/1_update_pacman_and_set_reflector
+
+# 2. !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! IT WILL DELETE ALL YOUR DATA ON /dev/sda | format disk
+# formating disk script fill formt /dev/sda by default and format it to ext4
+# ###############################3
+# format parted /dev/sdb
+# mklabel gpt
+# have to create 3 partitions
+# if you use uefi you have to create bootable partition with at least 512M size
+# format this partition
+# mkfs.fat -F32 /dev/sda1
+# others format in ext4
+# mkfs.ext4 /dev/sda2
+# ###############################3
+# if you want to use legacy use this file:
+./installation/2_create_new_partition_and_format.sh
+# cfdisk - check with UI
+# type id 83 (Linux)
+
+# 3. run mount_and_system_installation script
+./installation/3_mount_and_system_installation.sh
+# For some reasong I got this error mount: /mnt: unknown filesystem type 'ext4'.
+# After rebooting system and not apdating pacman you can mount and install
+#
+# Install packages to the system
+# pacstrap -i /mnt dialog
+# pacstrap -i /mnt wpa_supplicant
+#
+# Location of wifi-menu config
+# /etc/netctl
+#
+# sudo killall wpa_supplicant
+# sudo ip link set dev wlp3s0 down
+# sudo wifi-menu
+
+# 4. run setup services script
+arch-chroot /mnt /bin/bash  # login in newly installed system
+# Turn off PC speaker
+rmmod pcspkr
+pacman -S git --noconfirm
+git clone https://github.com/RuslanShmid/.system_config.git
+pacman -S neovim --noconfirm
+cd ~/.system_config/arch
+# install git and again download .system_config
+./installation/4_setup_services
+
+
+#################################################### For wifi-menu
+# save in /mnt https://invisible-island.net/datafiles/release/dialog.tar.gz
+# untar # tar -xf dialog.tar.gz
+#
+
+# 5. Generate locale and set password
+vim /etc/locale.gen                                      # uncomment locale that you want to use
+# en_US.UTF-8
+# ru_RU.UTF-8
+# uk_UA.UTF-8
+locale-gen                                               # regenerage locale
+passwd                                                   # set your password
+exit
+umount -R /mnt                                           # unmount the system
+reboot
+
+
+# 5. Lunch an existing OS add new user and login
+
+# Create a user
+useradd -m -g users -G wheel -s /bin/bash shmid
+passwd shmid
+# add user to sudo grup
+visudo
+# and uncomment %wheel ALL=(ALL) ALL
+exit # and login as a created user
+
+# 6. run programs_installation script
+./1_update_pacman_and_set_reflector # Run first step before running the fifth one
+./installation/5_programs_installation
+
+# 7 instal apps
+# ./apps/setup.sh
+
+##################### MANUAL SETUP REQUIRED
+# 8 dotfiles setup
+# Uncomment Color in /etc/pacman.conf
+
+
+# systemctl list-unit-files | grep enabled   # check systemctl
+
+# Open /etc/makepkg.conf
+# find #MAKEFLAGS and change from
+# "-j2" to
+# "-j$(nproc)"
+# It will get your number of CPU threads insted of default and increase compining time
+
+
+
+# For arch work from external drive add modules to
+MODULES=(usb_storage uas)
+/etc/mkinitcpio.conf
+
+
+# Clone disk
+# sudo ddrescue -f -n {from}     {to} rescue.log
+#                     /dev/sda1  /dev/sdb1
+

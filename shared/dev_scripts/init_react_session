@@ -1,0 +1,44 @@
+#!/bin/bash
+
+SESSION=`basename $PWD`
+COMMAND=$1
+
+# create session
+tmux -2 new-session -d -s $SESSION
+
+# ----------------------- Main window -----------------------------------
+
+# rename main window
+tmux rename-window -t $SESSION:1 workspace
+
+# split and resize panes on main
+tmux split-window
+tmux select-pane -t 1
+tmux resize-pane -D 14
+tmux select-pane -t 2
+tmux split-window -h
+
+
+# run processes
+
+tmux select-window -t $SESSION:1
+
+# run VIM
+tmux select-pane -t 1
+tmux send-keys 'vim .' C-m
+
+# run rails c
+tmux select-pane -t 2
+tmux send-keys 'yarn start' C-m
+
+
+# ========================================================================
+
+
+# select window and attach to session
+
+tmux select-window -t $SESSION:1
+tmux select-pane -t 1
+tmux a -t $SESSION
+
+

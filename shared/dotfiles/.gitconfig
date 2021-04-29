@@ -1,0 +1,23 @@
+[user]
+	name = Ruslan Shmid
+	email = ruslan.shmid.rsd@gmail.com
+[alias]
+	ck = checkout
+	ci = commit
+	br = branch
+	st = status
+	df = diff
+	rb = rebase
+	cia = commit --all -m
+	lgga = log --pretty='%Cred%h%Creset | %C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)[%an]%Creseet' --graph --all
+	dp = diff --word-diff --unified=10
+	dhis = diff --histogram
+[core]
+	excludesfile = /home/shmid/.gitignore_global
+	whitespace = blank-at-eol,blank-at-eof,tab-in-indent
+[merge]
+	tool = meld
+[http]
+	postBuffer = 524288000
+[pull]
+	rebase = false

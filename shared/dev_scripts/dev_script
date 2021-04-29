@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sudo systemctl start docker.service
+# sudo systemctl start mysqld.service
+# sudo systemctl start postgresql.service
+# sudo systemctl start mongodb.service
+sudo ufw status
