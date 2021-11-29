@@ -1,8 +1,8 @@
 #!/bin/sh
 
-aurman -S docker             --noconfirm
-aurman -S docker-compose     --noconfirm
-aurman -S docker-machine     --noconfirm
+yay -S docker             --noconfirm
+yay -S docker-compose     --noconfirm
+yay -S docker-machine     --noconfirm
 
 sudo systemctl enable docker.service
 sudo systemctl start docker.service

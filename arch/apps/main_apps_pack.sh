@@ -60,6 +60,7 @@ yay -S audacity                 --noconfirm # mp3 manager
 yay -S time                     --noconfirm # time <command> for benchmarks
 yay -S zeal                     --noconfirm # offline documentation
 yay -S htop                     --noconfirm #
+sudo pacman -S iftop            --noconfirm # Iftop, one of the most popular command line tool for monitoring network traffic in Linux.
 # yay -S redshiftgui-bin          --noconfirm
 # yay -S virtualbox               --noconfirm
 yay -S kazam                    --noconfirm # Audio and video recorder

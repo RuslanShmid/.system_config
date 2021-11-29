@@ -1,3 +1,3 @@
 #!/bin/bash
 
-aurman -S steam --noconfirm
+yay -S steam --noconfirm

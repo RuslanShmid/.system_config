@@ -4,5 +4,5 @@
 sudo pacman -S fceux --noconfirm
 
 # PS1 emulator
-aurman -S pcsxr --noconfirm
-aurman -S psx --noconfirm
+yay -S pcsxr --noconfirm
+yay -S psx --noconfirm

@@ -12,4 +12,4 @@ xinput --set-prop 'TPPS/2 IBM TrackPoint' 'libinput Accel Speed' -0.6 & # set ac
 setxkbmap -option caps:escape &
 # xinput set-prop "AT Translated Set 2 keyboard" "Device Enabled" 0 & # disable the keyboard
 # blueman-applet &
-xrandr --output DP-0 --mode 3440x1440 --rate 144
+xrandr --output DP-2 --mode 3440x1440 --rate 120

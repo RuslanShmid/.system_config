@@ -1,1 +1,0 @@
-/home/shmid/.fzf/shell/key-bindings.fish

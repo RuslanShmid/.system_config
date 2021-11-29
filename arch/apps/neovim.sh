@@ -12,8 +12,8 @@ sudo pacman -S the_silver_searcher --noconfirm
 mkdir -p ~/.config/nvim/
 mkdir -p ~/.config/nvim/colors
 
-aurman -S neobundle-git --noconfirm
-aurman -S python-pynvim --noconfirm
+yay -S neobundle-git --noconfirm
+yay -S python-pynvim --noconfirm
 
 ln -s ~/.system_config/shared/vendor/monokai-phoenix.vim ~/.config/nvim/colors # link theme
 ln -s ~/.system_config/shared/dotfiles/init.vim ~/.config/nvim/                # link config

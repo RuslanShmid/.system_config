@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# aurman -S tlp                      --noconfirm
-# aurman -S powertop                 --noconfirm
-# aurman -S pstate-frequency         --noconfirm
+# yay -S tlp                      --noconfirm
+# yay -S powertop                 --noconfirm
+# yay -S pstate-frequency         --noconfirm
 #
 # sudo systemctl enable tlp.service
 # sudo systemctl start tlp.service

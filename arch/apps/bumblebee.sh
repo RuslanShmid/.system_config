@@ -1,6 +1,6 @@
 #!/bin/sh
 
-aurman -S bumblebee --noconfirm
+yay -S bumblebee --noconfirm
 
 sudo systemctl start bumblebeed.service
 sudo systemctl enable bumblebeed.service

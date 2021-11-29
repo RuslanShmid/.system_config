@@ -1,6 +1,6 @@
 #!/bin/sh
 
-aurman -S qxkb --noconfirm
+yay -S qxkb --noconfirm
 
 rm ~/.config/qxkb.cfg
 
