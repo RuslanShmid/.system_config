@@ -160,7 +160,7 @@ NeoBundle 'scrooloose/nerdtree'                                        " file tr
   let NERDTreeShowLineNumbers=1
   let NERDTreeCascadeSingleChildDir=0
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-  let g:NERDTreeIndicatorMapCustom = {
+  let g:NERDTreeGitStatusIndicatorMapCustom = {
       \ "Modified"  : "✹",
       \ "Staged"    : "✚",
       \ "Untracked" : "✭",
