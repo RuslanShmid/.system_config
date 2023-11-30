@@ -21,9 +21,12 @@ ln -s ~/.system_config/shared/dotfiles/init.vim ~/.config/nvim/                #
 nvim +NeoBundleInstall +qall
 nvim +UpdateRemotePlugins
 
-# cd ~/.vim/bundle/youcompleteme/
+sudo pacman -S jdk-openjdk # java is needed for youcompleteme install
+
+cd ~/.vim/bundle/youcompleteme/
 # git submodule update --init --recursive
-# python3 install.py --all
+python3 install.py --all
+cd -
 
 # curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 #     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

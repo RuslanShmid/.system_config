@@ -20,4 +20,4 @@ sudo systemctl enable ufw.service
 # sudo pacman-optimize
 
 # turn on fish C-r search
-fish_user_key_bindings
+# fish_user_key_bindings

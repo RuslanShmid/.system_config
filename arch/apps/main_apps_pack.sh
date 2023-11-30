@@ -1,18 +1,20 @@
 #!/bin/sh
 
 # browsers
-# yay -S google-chrome            --noconfirm #
+yay -S google-chrome            --noconfirm #
 yay -S chromium                  --noconfirm #
-yay -S librewolf                 --noconfirm
+# yay -S librewolf                 --noconfirm
+yay -S librewolf-bin                 --noconfirm
 yay -S firefox-developer-edition --noconfirm
-# yay -S firefox                  --noconfirm #
-# yay -S opera                    --noconfirm #
-# yay -S lynx                     --noconfirm #
-# yay -S qutebrowser              --noconfirm #
-# yay -S vivaldi                  --noconfirm #
+yay -S firefox                  --noconfirm #
+yay -S opera                    --noconfirm #
+yay -S lynx                     --noconfirm # console browser?
+yay -S qutebrowser              --noconfirm # chromium browser with vim bindings
+yay -S vivaldi                  --noconfirm # ?
 # yay -S brave                    --noconfirm #
-# yay -S min                      --noconfirm #
-# yay -S genymotion               --noconfirm
+yay -S brave-bin                    --noconfirm #
+yay -S min                      --noconfirm #
+yay -S genymotion               --noconfirm
 
 # system configuration
 yay -S pavucontrol              --noconfirm # volume control throw UI
@@ -30,8 +32,8 @@ yay -S slack-desktop            --noconfirm #
 yay -S telegram-desktop         --noconfirm #
 
 # system information
-# yay -S dmidecode                --noconfirm #
-# yay -S kinfocenter              --noconfirm #
+yay -S dmidecode                --noconfirm #
+yay -S kinfocenter              --noconfirm #
 
 # terminals
 yay -S alacritty                --noconfirm #
@@ -58,19 +60,19 @@ yay -S vlc                      --noconfirm # video player
 yay -S ktorrent                 --noconfirm #
 yay -S audacity                 --noconfirm # mp3 manager
 yay -S time                     --noconfirm # time <command> for benchmarks
-yay -S zeal                     --noconfirm # offline documentation
+# yay -S zeal                     --noconfirm # offline documentation
 yay -S htop                     --noconfirm #
 sudo pacman -S iftop            --noconfirm # Iftop, one of the most popular command line tool for monitoring network traffic in Linux.
 # yay -S redshiftgui-bin          --noconfirm
-# yay -S virtualbox               --noconfirm
+yay -S virtualbox               --noconfirm
 yay -S kazam                    --noconfirm # Audio and video recorder
 yay -S inxi                     --noconfirm # inxi -b # system information
 yay -S glxinfo                  --noconfirm
-sudo pacman -S grub-customizer          --noconfirm # gui editor for grub.cfg
-# yay -S pgadmin3 --noconfirm
-# yay -S postman-bin              --noconfirm
+sudo pacman -S grub-customizer  --noconfirm # gui editor for grub.cfg
+# yay -S pgadmin4 --noconfirm
+yay -S postman-bin              --noconfirm
 # yay -S                          --noconfirm #
-pacman -S youtube-dl               --noconfirm # download the youtube video
+sudo pacman -S youtube-dl       --noconfirm # download the youtube video
 
 ###########################
 # yay -S viber                    --noconfirm
@@ -79,30 +81,30 @@ pacman -S youtube-dl               --noconfirm # download the youtube video
 ### clearing system
 sudo pacman -S pacman-contrib      --noconfirm
 yay -S ncdu                     --noconfirm
-yay -S smartgit                 --noconfirm
-yay -S gitkraken                --noconfirm
+# yay -S smartgit                 --noconfirm
+# yay -S gitkraken                --noconfirm
 sudo pacman -S gitg                --noconfirm
 
 
 ### math
-yay -S qalculate-gtk            --noconfirm
+# yay -S qalculate-gtk            --noconfirm
 yay -S speedcrunch              --noconfirm # calculator
-yay -S geogebra                 --noconfirm
+# yay -S geogebra                 --noconfirm
 
 ### android
 yay -S android-file-transfer    --noconfirm #
 yay -S scrcpy                   --noconfirm #
 sudo pacman -S mtpfs               --noconfirm
-# yay -S genymotion               --noconfirm
+yay -S genymotion               --noconfirm
 
 ### additional
-# sudo pacman -S gimp                --noconfirm # Photoshop like tool
+sudo pacman -S gimp                --noconfirm # Photoshop like tool
 
 ### benchmarks
 yay -S s-tui                    --noconfirm # cpu ui information
 sudo pacman -S intel-gpu-tools     --noconfirm # intel_gpu_top
-yay -S python-gpustat           --noconfirm # gpustat # gpustat --watch
-sudo pacman -S dmidecode           --noconfirm
+# yay -S python-gpustat           --noconfirm # gpustat # gpustat --watch
+# sudo pacman -S dmidecode           --noconfirm
 # sudo pacman -S hddtemp             --noconfirm # check drive temperature
 yay -S hardinfo                 --noconfirm
 
@@ -110,9 +112,9 @@ yay -S hardinfo                 --noconfirm
 sudo pacman -S feh                 --noconfirm # image viewer
 sudo pacman -S acpi                --noconfirm # check battery status
 sudo pacman -S neofetch            --noconfirm
-sudo pacman -S lshw                --noconfirm # posts information
+# sudo pacman -S lshw                --noconfirm # posts information
 sudo pacman -S speedtest-cli       --noconfirm
-yay -S sc-im                    --noconfirm
+# yay -S sc-im                    --noconfirm
 # sudo pacman -S xf86-video-intel    --noconfirm # intel graphics
 # sudo pacman -S ntfs-3g             --noconfirm # mkfs.ntfs make
 sudo pacman -S ntfsprogs           --noconfirm # make

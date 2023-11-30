@@ -20,7 +20,7 @@
 ./react_setup.sh
 ./additional_packages.sh
 ./qxkb.sh
-./bluetooth.sh
+#./bluetooth.sh
 ./set_locale.sh
 # ./bumblebee.sh # Do now forger to reload afterwards
 ./xprofile

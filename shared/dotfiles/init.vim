@@ -18,6 +18,7 @@ else
   NeoBundle 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
+# let g:python3_host_prog = substitute(system('which python3'), '\n', '', '')
 
 " NeoBundle 'Valloric/YouCompleteMe'                        " fast fuzzy-search code completion engine
 " NeoBundle 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }

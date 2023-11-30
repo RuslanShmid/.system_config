@@ -7,7 +7,7 @@ yay -S fisher --noconfirm
 fisher install FabioAntunes/fish-nvm # install fish nvm.
 fisher install jethrokuan/fzf        # install history search plugin
 fisher install jhillyerd/plugin-git  # git plugins
-fisher install acomagu/fish-async-prompt
+# fisher install acomagu/fish-async-prompt
 # fisher install jorgebucaran/spark.fish
 
 # install omf
