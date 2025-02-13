@@ -36,8 +36,8 @@ alias restart_spring="spring stop && spring binstub --all && spring start"
 alias tha='thinkalert'
 
 eval (ssh-agent -c)
-ssh-add ~/private/ssh/id_rsa
-# ssh-add ~/private/ssh/id_rsa_rsd
+# ssh-add ~/private/ssh/id_rsa
+ssh-add ~/private/ssh/id_rsa_rsd
 # ssh-add ~/private/ssh/id_rsa_visitorg
 # ssh-add /home/shmid/.ssh/digital_ocean
 

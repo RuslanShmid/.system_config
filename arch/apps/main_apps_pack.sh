@@ -46,7 +46,8 @@ yay -S downgrade                --noconfirm # downgrade the packages
 # others
 # yay -S unetbootin               --noconfirm # usb bootable flash drive
 yay -S spectacle                --noconfirm # screenshot maker
-yay -S spacefm                  --noconfirm # file manager
+# yay -S spacefm                  --noconfirm # file manager
+sudo pacman -S pcmanfm          --noconfirm # light weight file manager
 yay -S okular                   --noconfirm # pdf/images viewer
 yay -S arandr                   --noconfirm # monitor manager
 yay -S debtap                   --noconfirm # deb to arch packages
